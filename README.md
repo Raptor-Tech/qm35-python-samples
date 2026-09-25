@@ -5,6 +5,19 @@ It describes the structure, installation, and usage of the utilities provided by
 
 > **Warning**: These tools are provided by Qorvo as UCI examples on an as-is basis and are neither optimized nor intended for production use.
 
+## For Noah
+Read below for notes on how to install and setup this repo. 
+
+```bash
+python run_fira_twr.py -p ftdi://FT4222 -s 1 --mac 00:0a --dest-mac "['00:0b']" -c 5 -t -1
+```
+This command sets the the QM35 to run as a controller. 
+- `-p`; The serial port path; This will be your windows device
+- `-s`: Session ID; This is hard coded to 1 on the NRF52 Firmware
+- `--mac`: This is hard coded controller's MAC. The NRF52 is ahrd coded to send to 00:0a.
+- `--dest-mac`: This is the controlee's (the NRF52's) MAC. The NRF52 is hard coded to MAC 00:0b.
+- `-c`: Channel; This is hard coded to channel 5 as per existing applications. It is configured as `-1` to run forever.
+
 ## Root Folder Organization
 
 The main structure of the UQT library is outlined below. Non-essential files and directories are omitted for clarity.
@@ -31,6 +44,7 @@ uwb-qorvo-tools
         ├── <functionality_2>             <-- A "chapter" represents functionality 2.
         └── ...                           <-- Other "chapters" represent further functionalities.
 ```
+
 
 ## Prerequisites
 
